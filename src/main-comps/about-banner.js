@@ -1,9 +1,9 @@
 import mario from '../Content/MarioAdrian.jpg'
 
-export default function about(){
+export default function About(){
     return(
     <>
-    <h1>About Little Lemon</h1>
+    <h1 className='titleBar'>About Little Lemon</h1>
     <>
     <div className="reserve">        
         <h1 className="reserve">Little Lemon is a mediterainian restaurant in Chicago</h1>

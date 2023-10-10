@@ -1,11 +1,13 @@
 import '../Styles/App.css'
 import logoImage from '../Content/Logo .svg';
 import React, { useState, useEffect} from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function Nav (){
     const [open, setOpen] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
+    const goHome = useNavigate();
+    const reserveNow = useNavigate();
 
     const toggleNav = () => {
         setOpen(!open)
@@ -26,11 +28,11 @@ export default function Nav (){
     return (
         <>
         <nav className="navbar">
-            <div className="navimg" href=""><img src={logoImage} alt="Logo of Little Lemon"></img></div>  
+            <div className="navimg" href=""><img src={logoImage} alt="Logo of Little Lemon" onClick={()=>goHome('/')}></img></div>  
             {(open || screenWidth > 1024) && (
                 <ul className="navlinks">
                     <li className="nitem">
-                        <a className="nlink">Home</a>
+                        <a className="nlink" onClick={()=>goHome('/')}>Home</a>
                     </li>
                     <li className="nitem">
                         <a className="nlink">About</a>
@@ -39,7 +41,7 @@ export default function Nav (){
                         <a className="nlink">Menu</a>
                     </li>
                     <li className="nitem">
-                        <a className="nlink">Reservations</a>
+                        <a className="nlink" onClick={()=>reserveNow('/reservationPage')}>Reservations</a>
                     </li>
                     <li className="nitem">
                         <a className="nlink">Order</a>
